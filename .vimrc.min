@@ -1,0 +1,45 @@
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
+colorscheme onedark
+
+
+
+
+" simple vimrc config
+
+set nocompatible
+
+set number         " Show line numbers
+set ruler          " Show the line and column number of the cursor position
+set sm             " auto complete ( [ {
+
+" indentation
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set autoindent     " Copy indent from current line when starting a new line
+set smartindent    " Do smart indenting when starting a new line. Works with supported c-like languages
+
+" searching
+set hlsearch       " Highlight search results
+set ignorecase     " When doing a search, ignore the case of letters
+set smartcase      " Override the ignorecase option if the search pattern contains upper case letters
+
+syntax on          " auto highlight syntax
+
+" encoding
+set encoding=utf-8
+
+
+" jj as esc key
+inoremap jj <ESC>
